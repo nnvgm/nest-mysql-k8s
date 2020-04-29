@@ -1,5 +1,4 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { User } from 'src/users/users.entity';
 
 export const dbConfig: TypeOrmModuleOptions = {
   type: 'mysql',
@@ -9,5 +8,5 @@ export const dbConfig: TypeOrmModuleOptions = {
   password: process.env.DB_PASS || 'root',
   database: process.env.DB_DATABASE || 'test',
   synchronize: process.env.NODE_ENV !== 'production' ? true : false,
-  entities: [User],
+  autoLoadEntities: true,
 };
